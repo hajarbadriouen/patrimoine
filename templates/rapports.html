@@ -1,0 +1,47 @@
+<h1>Rapports Patrimoine</h1>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+<form method="get" action="/rapports">
+    <label>Année: </label>
+    <input type="number" name="annee" value="{{ annee }}">
+    <button type="submit">Filtrer</button>
+</form>
+
+
+<h2>Bâtiments en mauvais état</h2>
+<ul>
+{% for b in mauvais %}
+    <li>{{ b[0] }} - {{ b[1] }} ({{ b[2] }})</li>
+{% endfor %}
+</ul>
+
+<h2>Nombre d'interventions par entreprise</h2>
+<ul>
+{% for p in interventions %}
+    <li>{{ p[0] }} : {{ p[1] }}</li>
+{% endfor %}
+</ul>
+
+<h2>Bâtiments restaurés en {{ annee }}</h2>
+<ul>
+{% for b in restaures %}
+    <li>{{ b[0] }} - {{ b[1] }}</li>
+{% endfor %}
+</ul>
+
+<h2>Coût total des restaurations par quartier</h2>
+<ul>
+{% for z in cout_quartier %}
+    <li>{{ z[0] }} : {{ z[1] }}</li>
+{% endfor %}
+</ul>
+
+<h2>Prestataires ayant réalisé plus de 3 chantiers</h2>
+<ul>
+{% for p in prestataires %}
+    <li>{{ p[0] }} : {{ p[1] }} chantiers</li>
+{% endfor %}
+</ul>
+
+<a href="/rapports"><button>Actualiser</button></a>
+<a href="/">Retour à l'accueil</a>

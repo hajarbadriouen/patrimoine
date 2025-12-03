@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter Batiment</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Ajouter un Batiment</h1>
+    <form action="/add" method="POST">
+        <label>Nom du batiment:</label>
+        <input type="text" name="name" required><br>
+
+        <label>Zone (Id_zone):</label>
+        <input type="number" name="zone" required><br>
+
+        <label>Type (Id_type):</label>
+        <input type="number" name="type" required><br>
+
+        <label>Année de construction:</label>
+        <input type="number" name="year" required><br>
+
+        <label>Etat / niveau de protection:</label>
+        <input type="text" name="etat" required><br>
+
+        <label>Latitude:</label>
+        <input type="text" name="latitude" required><br>
+
+        <label>Longitude:</label>
+        <input type="text" name="longitude" required><br>
+
+        <button type="submit">Ajouter</button>
+    </form>
+</body>
+</html>
